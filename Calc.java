@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main{
@@ -6,29 +5,27 @@ public class Main{
         int a;
         int b;
         int result;
-        char operation;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите 2 числа от 1 до 10");
-        a = scanner.nextInt();
-        b = scanner.nextInt();
-        if((a <= 0) |(a > 10) | (b <= 0) | (b > 10)){
-            System.out.println("Вы ввели неподходящее число");
-        }
-        System.out.println("Введите знак операции");
-        operation = scanner.next().charAt(0);
+        System.out.println("Введите выражение чисел");
+        String input = scanner.nextLine();
+        String[] splitInput = input.split(" ");
+        a = Integer.parseInt(splitInput[0]);
+        b = Integer.parseInt(splitInput[2]);
+        String operation = splitInput[1];
+
         switch(operation){
-            case '+' : result = a + b;
-            break;
-            case '-' : result = a - b;
-            break;
-            case '*' : result = a * b;
-            break;
-            case '/' : result = a / b;
-            break;
+            case "+" : result = a + b;
+                break;
+            case "-" : result = a - b;
+                break;
+            case "*" : result = a * b;
+                break;
+            case "/" : result = a / b;
+                break;
             default:
                 System.out.println("Введен неверный оператор");
                 return;
         }
-        System.out.println(a + " " + operation + " " + b + " " + "=" + " " + result);
+        System.out.println(result);
     }
 }
